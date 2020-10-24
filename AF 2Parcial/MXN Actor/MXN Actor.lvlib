@@ -4,6 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="Messages for this Actor" Type="Folder">
+		<Item Name="Comprar Msg.lvclass" Type="LVClass" URL="../../MXN Actor Messages/Comprar Msg/Comprar Msg.lvclass"/>
 		<Item Name="init Msg.lvclass" Type="LVClass" URL="../../MXN Actor Messages/init Msg/init Msg.lvclass"/>
 		<Item Name="Process coin Msg.lvclass" Type="LVClass" URL="../../MXN Actor Messages/Process coin Msg/Process coin Msg.lvclass"/>
 	</Item>
