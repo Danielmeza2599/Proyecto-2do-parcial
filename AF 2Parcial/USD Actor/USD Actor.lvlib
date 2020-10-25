@@ -6,6 +6,7 @@
 	<Item Name="Messages for this Actor" Type="Folder">
 		<Item Name="init Msg.lvclass" Type="LVClass" URL="../../USD Actor Messages/init Msg/init Msg.lvclass"/>
 		<Item Name="ProcessCoin Msg.lvclass" Type="LVClass" URL="../../USD Actor Messages/ProcessCoin Msg/ProcessCoin Msg.lvclass"/>
+		<Item Name="Update Coins Msg.lvclass" Type="LVClass" URL="../../USD Actor Messages/Update Coins Msg/Update Coins Msg.lvclass"/>
 	</Item>
 	<Item Name="USD Actor.lvclass" Type="LVClass" URL="../USD Actor.lvclass"/>
 </Library>

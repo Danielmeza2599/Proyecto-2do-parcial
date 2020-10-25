@@ -7,6 +7,7 @@
 		<Item Name="Comprar Msg.lvclass" Type="LVClass" URL="../../MXN Actor Messages/Comprar Msg/Comprar Msg.lvclass"/>
 		<Item Name="init Msg.lvclass" Type="LVClass" URL="../../MXN Actor Messages/init Msg/init Msg.lvclass"/>
 		<Item Name="Process coin Msg.lvclass" Type="LVClass" URL="../../MXN Actor Messages/Process coin Msg/Process coin Msg.lvclass"/>
+		<Item Name="Update Coins Msg.lvclass" Type="LVClass" URL="../../MXN Actor Messages/Update Coins Msg/Update Coins Msg.lvclass"/>
 	</Item>
 	<Item Name="MXN Actor.lvclass" Type="LVClass" URL="../MXN Actor.lvclass"/>
 </Library>

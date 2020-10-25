@@ -6,6 +6,7 @@
 	<Item Name="Messages for this Actor" Type="Folder">
 		<Item Name="creditUpdate Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/creditUpdate Msg/creditUpdate Msg.lvclass"/>
 		<Item Name="Init Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Init Msg/Init Msg.lvclass"/>
+		<Item Name="Update Values Msg.lvclass" Type="LVClass" URL="../../UI Actor Messages/Update Values Msg/Update Values Msg.lvclass"/>
 	</Item>
 	<Item Name="UI Actor.lvclass" Type="LVClass" URL="../UI Actor.lvclass"/>
 </Library>
