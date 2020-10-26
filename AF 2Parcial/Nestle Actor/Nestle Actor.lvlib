@@ -4,6 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">536903680</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="Messages for this Actor" Type="Folder">
+		<Item Name="Get Value list Msg.lvclass" Type="LVClass" URL="../../Nestle Actor Messages/Get Value list Msg/Get Value list Msg.lvclass"/>
 		<Item Name="Init Msg.lvclass" Type="LVClass" URL="../../Nestle Actor Messages/Init Msg/Init Msg.lvclass"/>
 		<Item Name="Update inventary Msg.lvclass" Type="LVClass" URL="../../Nestle Actor Messages/Update inventary Msg/Update inventary Msg.lvclass"/>
 	</Item>
