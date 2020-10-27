@@ -1,0 +1,2370 @@
+= Proyecto 2do Parcial
+Daniel Meza
+:doctype: book
+:toc: 
+:imagesdir: Images
+:sectnums: 
+:toclevels: 3
+:chapter-label: Section
+
+== Project description
+
+No description found (add content in project description)
+
+== Code component descriptions
+
+=== DQMH(R) modules
+
+This section describes DQMH(R) module responsibilities and relationships.
+
+==== Preamble
+
+A DQMH module is the main component of an architecture based on DQMH(R) framework. A DQMH module is used to implement a section of the application that has one responsibility.
+
+DQMH(R) framework defines two different type of DQMH module.  
+
+====
+*Singleton:*
+
+A Singleton DQMH module can have only one instance running at any given time.
+====
+
+====
+*Cloneable:*
+
+A Cloneable DQMH module can have one or multiple instances running in parallel.
+====
+
+DQMH(R) framework defines two different ways to carry data throughout the application and with both other DQMH modules and non-DQMH based code.
+
+====
+*Request events:*
+
+A request is a code that fires an event requesting the DQMH module to do something. Multiple locations in the code can send events to the DQMH module.
+
+Request events are many-to-one.
+
+Requests are usually named using imperative tense.
+====
+
+====
+*Broadcast events:*
+
+A broadcast is a code that fires an event broadcasting that the DQMH module did something. Multiple Event Structures can register to handle the Broadcast Events.
+
+Broadcast Events are one-to-many.
+
+Broadcasts are usually named using past tense or passive voice.
+====
+
+NOTE: Refer to the DQMH(R) framework official http://delacor.com/documentation/dqmh-html/[documentation] to find more details on how the framework works
+
+
+The following section gives you details on the project architecture relying on this framework.
+It gives you an overview of the modules' interaction and detailed information on each module.
+
+Graphs used in this section have the following legend:
+
+*Components:*
+
+
+[graphviz, format="png", align="center"]
+....
+digraph G429223 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+"DQMH module / Lvlib"[color=black shape=component]
+"Vi"[color=skyblue shape=note]
+}
+....
+
+*Events:*
+
+[graphviz, format="png", align="center"]
+....
+digraph G94269 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+" "[color=white shape=box]
+"  "[color=white shape=box]
+"   "[color=white shape=box]
+"    "[color=white shape=box]
+" " -> "  " [label="Request to a DQMH module" dir=both color=forestgreen  arrowhead=normal arrowtail=none style=filled penwidth=1];
+"   " -> "    " [label="Broadcast from a DQMH module" dir=both color=goldenrod  arrowhead=normal arrowtail=none style=dashed penwidth=1];
+}
+....
+
+*Start and Stop module callers:*
+
+[graphviz, format="png", align="center"]
+....
+digraph G875095 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+"Start Module
+caller"[color=black shape=component]
+"Start Module"[color=yellowgreen shape=note]
+"Start Module" -> "Start Module
+caller" [label="Called by" dir=both color=yellowgreen  arrowhead=odot arrowtail=inv style=filled penwidth=1];
+}
+....
+
+[graphviz, format="png", align="center"]
+....
+digraph G939850 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+"Stop Module
+caller"[color=black shape=component]
+"Stop Module"[color=tomato shape=note]
+"Stop Module" -> "Stop Module
+caller" [label="Called by" dir=both color=tomato  arrowhead=odot arrowtail=inv style=dotted penwidth=1];
+}
+....
+
+
+==== Modules overview
+
+This project contains the following modules.
+
+.Modules list
+|===
+|Singleton|Cloneable
+
+|===
+
+This graph represents the links between all DQMH modules.
+
+[graphviz, format="png", align="center"]
+....
+digraph G104912 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1]
+node[color=black shape=box]
+}
+....
+
+
+=== Libraries
+
+This section describes the libraries contained in the project.
+
+==== USD Actor.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== MXN Actor.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== Soda Actor.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== Nestle Actor.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== MSG.lvlib
+
+No description found (add content in lvlib description)
+
+
+==== UI Actor.lvlib
+
+No description found (add content in lvlib description)
+
+
+=== Classes
+
+This section describes the classes contained in the project.
+
+==== init Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== ProcessCoin Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Update Coins Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== USD Actor.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Comprar Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== init Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Process coin Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Update Coins Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== MXN Actor.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Comprar Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Get Value List Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== init Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Producto select Process Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Set Products Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Update Inventary Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Soda Actor.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Get Value list Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Init Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Update inventary Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Nestle Actor.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== init Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Update Credit Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Update MSG Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== MSG.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== creditUpdate Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Init Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== Update Values Msg.lvclass
+
+No description found (add content in lvlib description)
+
+
+==== UI Actor.lvclass
+
+No description found (add content in lvlib description)
+
+
+== VI descriptions
+
+=== DQMH(R) modules
+
+This section describes DQMH(R) modules events.
+
+=== Libraries
+
+This section describes libraries public VIs.
+
+==== USD Actor.lvlib
+
+===== USD Actor.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: USD Actor.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[USD Actor.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== USD Actor.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: USD Actor.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[USD Actor.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== USD Actor.lvlib:ProcessCoin Msg.lvclass:Send ProcessCoin.vi
+
+:imgpath: USD Actor.lvlib_ProcessCoin Msg.lvclass_Send ProcessCoin.vi.png
+image::{imgpath}[USD Actor.lvlib:ProcessCoin Msg.lvclass:Send ProcessCoin.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== USD Actor.lvlib:ProcessCoin Msg.lvclass:Do.vi
+
+:imgpath: USD Actor.lvlib_ProcessCoin Msg.lvclass_Do.vi.png
+image::{imgpath}[USD Actor.lvlib:ProcessCoin Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== USD Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi
+
+:imgpath: USD Actor.lvlib_Update Coins Msg.lvclass_Send Update Coins.vi.png
+image::{imgpath}[USD Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== USD Actor.lvlib:Update Coins Msg.lvclass:Do.vi
+
+:imgpath: USD Actor.lvlib_Update Coins Msg.lvclass_Do.vi.png
+image::{imgpath}[USD Actor.lvlib:Update Coins Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== USD Actor.lvlib:USD Actor.lvclass:Read Sub Panel coin.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_Read Sub Panel coin.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:Read Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:Write Sub Panel coin.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_Write Sub Panel coin.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:Write Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:init.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_init.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:ProcessCoin.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_ProcessCoin.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:ProcessCoin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:Update Coins.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_Update Coins.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:Update Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== MXN Actor.lvlib
+
+===== MXN Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi
+
+:imgpath: MXN Actor.lvlib_Comprar Msg.lvclass_Send Comprar.vi.png
+image::{imgpath}[MXN Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:Comprar Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_Comprar Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:Comprar Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== MXN Actor.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: MXN Actor.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[MXN Actor.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== MXN Actor.lvlib:Process coin Msg.lvclass:Send Process coin.vi
+
+:imgpath: MXN Actor.lvlib_Process coin Msg.lvclass_Send Process coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:Process coin Msg.lvclass:Send Process coin.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:Process coin Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_Process coin Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:Process coin Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== MXN Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi
+
+:imgpath: MXN Actor.lvlib_Update Coins Msg.lvclass_Send Update Coins.vi.png
+image::{imgpath}[MXN Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:Update Coins Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_Update Coins Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:Update Coins Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Read Sub Panel coin.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Read Sub Panel coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Read Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Write Sub Panel coin.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Write Sub Panel coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Write Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Comprar
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Comprar.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Comprar]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:init.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_init.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Process coin.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Process coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Process coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Update Coins.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Update Coins.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Update Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Soda Actor.lvlib
+
+===== Soda Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi
+
+:imgpath: Soda Actor.lvlib_Comprar Msg.lvclass_Send Comprar.vi.png
+image::{imgpath}[Soda Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Comprar Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Comprar Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Comprar Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Soda Actor.lvlib:Get Value List Msg.lvclass:Send Get Value List.vi
+
+:imgpath: Soda Actor.lvlib_Get Value List Msg.lvclass_Send Get Value List.vi.png
+image::{imgpath}[Soda Actor.lvlib:Get Value List Msg.lvclass:Send Get Value List.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Get Value List Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Get Value List Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Get Value List Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Soda Actor.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: Soda Actor.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[Soda Actor.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Soda Actor.lvlib:Producto select Process Msg.lvclass:Send Producto select Process.vi
+
+:imgpath: Soda Actor.lvlib_Producto select Process Msg.lvclass_Send Producto select Process.vi.png
+image::{imgpath}[Soda Actor.lvlib:Producto select Process Msg.lvclass:Send Producto select Process.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Producto select Process Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Producto select Process Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Producto select Process Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Soda Actor.lvlib:Set Products Msg.lvclass:Send Set Products.vi
+
+:imgpath: Soda Actor.lvlib_Set Products Msg.lvclass_Send Set Products.vi.png
+image::{imgpath}[Soda Actor.lvlib:Set Products Msg.lvclass:Send Set Products.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Set Products Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Set Products Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Set Products Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Soda Actor.lvlib:Update Inventary Msg.lvclass:Send Update Inventary.vi
+
+:imgpath: Soda Actor.lvlib_Update Inventary Msg.lvclass_Send Update Inventary.vi.png
+image::{imgpath}[Soda Actor.lvlib:Update Inventary Msg.lvclass:Send Update Inventary.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Update Inventary Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Update Inventary Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Update Inventary Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read Sub Panel Produ.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read Sub Panel Produ.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write Sub Panel Produ.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write Sub Panel Produ.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read VI Refnum.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read VI Refnum.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write VI Refnum.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write VI Refnum.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read Soda_.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read Soda_.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write Soda_.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write Soda_.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read MXN.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read MXN.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write MXN.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write MXN.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Comprar.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Comprar.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Comprar.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Confirmar compra.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Confirmar compra.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Confirmar compra.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Get Value List.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Get Value List.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Get Value List.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:init.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_init.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Producto select Process.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Producto select Process.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Producto select Process.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Update Inventary.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Update Inventary.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Update Inventary.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Nestle Actor.lvlib
+
+===== Nestle Actor.lvlib:Get Value list Msg.lvclass:Send Get Value list.vi
+
+:imgpath: Nestle Actor.lvlib_Get Value list Msg.lvclass_Send Get Value list.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Get Value list Msg.lvclass:Send Get Value list.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Nestle Actor.lvlib:Get Value list Msg.lvclass:Do.vi
+
+:imgpath: Nestle Actor.lvlib_Get Value list Msg.lvclass_Do.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Get Value list Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Nestle Actor.lvlib:Init Msg.lvclass:Send Init.vi
+
+:imgpath: Nestle Actor.lvlib_Init Msg.lvclass_Send Init.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Init Msg.lvclass:Send Init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Nestle Actor.lvlib:Init Msg.lvclass:Do.vi
+
+:imgpath: Nestle Actor.lvlib_Init Msg.lvclass_Do.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Nestle Actor.lvlib:Update inventary Msg.lvclass:Send Update inventary.vi
+
+:imgpath: Nestle Actor.lvlib_Update inventary Msg.lvclass_Send Update inventary.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Update inventary Msg.lvclass:Send Update inventary.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Nestle Actor.lvlib:Update inventary Msg.lvclass:Do.vi
+
+:imgpath: Nestle Actor.lvlib_Update inventary Msg.lvclass_Do.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Update inventary Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read Sub Panel Produ.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read Sub Panel Produ.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write Sub Panel Produ.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write Sub Panel Produ.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read VI Refnum.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read VI Refnum.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write VI Refnum.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write VI Refnum.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read Soda_.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read Soda_.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write Soda_.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write Soda_.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read MXN.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read MXN.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write MXN.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write MXN.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Get Value list.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Get Value list.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Get Value list.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Init.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Init.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Update inventary.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Update inventary.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Update inventary.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== MSG.lvlib
+
+===== MSG.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: MSG.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[MSG.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MSG.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: MSG.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[MSG.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== MSG.lvlib:Update Credit Msg.lvclass:Send Update Credit.vi
+
+:imgpath: MSG.lvlib_Update Credit Msg.lvclass_Send Update Credit.vi.png
+image::{imgpath}[MSG.lvlib:Update Credit Msg.lvclass:Send Update Credit.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MSG.lvlib:Update Credit Msg.lvclass:Do.vi
+
+:imgpath: MSG.lvlib_Update Credit Msg.lvclass_Do.vi.png
+image::{imgpath}[MSG.lvlib:Update Credit Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== MSG.lvlib:Update MSG Msg.lvclass:Send Update MSG.vi
+
+:imgpath: MSG.lvlib_Update MSG Msg.lvclass_Send Update MSG.vi.png
+image::{imgpath}[MSG.lvlib:Update MSG Msg.lvclass:Send Update MSG.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MSG.lvlib:Update MSG Msg.lvclass:Do.vi
+
+:imgpath: MSG.lvlib_Update MSG Msg.lvclass_Do.vi.png
+image::{imgpath}[MSG.lvlib:Update MSG Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== MSG.lvlib:MSG.lvclass:Read Sub Panel Message.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Read Sub Panel Message.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Read Sub Panel Message.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Write Sub Panel Message.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Write Sub Panel Message.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Write Sub Panel Message.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Read VI Refnum.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Read VI Refnum.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Read VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Write VI Refnum.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Write VI Refnum.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Write VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:init.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_init.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Update Credit.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Update Credit.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Update Credit.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Update MSG.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Update MSG.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Update MSG.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== UI Actor.lvlib
+
+===== UI Actor.lvlib:creditUpdate Msg.lvclass:Send creditUpdate.vi
+
+:imgpath: UI Actor.lvlib_creditUpdate Msg.lvclass_Send creditUpdate.vi.png
+image::{imgpath}[UI Actor.lvlib:creditUpdate Msg.lvclass:Send creditUpdate.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:creditUpdate Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_creditUpdate Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:creditUpdate Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Init Msg.lvclass:Send Init.vi
+
+:imgpath: UI Actor.lvlib_Init Msg.lvclass_Send Init.vi.png
+image::{imgpath}[UI Actor.lvlib:Init Msg.lvclass:Send Init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Init Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Init Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:Update Values Msg.lvclass:Send Update Values.vi
+
+:imgpath: UI Actor.lvlib_Update Values Msg.lvclass_Send Update Values.vi.png
+image::{imgpath}[UI Actor.lvlib:Update Values Msg.lvclass:Send Update Values.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Update Values Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Update Values Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Update Values Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Coins.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Coins.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Coins.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Coins.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Products.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Products.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Products.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Products.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Products.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Products.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel coin.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Sub Panel coin.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel coin.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Sub Panel coin.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel MSG.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Sub Panel MSG.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel MSG.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel MSG.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Sub Panel MSG.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel MSG.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel Prod.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Sub Panel Prod.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel Prod.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel Prod.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Sub Panel Prod.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel Prod.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:costo + product english.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_costo + product english.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:costo + product english.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:costo + product.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_costo + product.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:costo + product.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:creditUpdate.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_creditUpdate.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:creditUpdate.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:ingles español.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_ingles español.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:ingles español.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Init.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Init.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:update values subvi.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_update values subvi.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:update values subvi.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Update Values.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Update Values.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Update Values.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+=== Classes
+
+This section describes classes public VIs.
+
+==== init Msg.lvclass
+
+===== USD Actor.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: USD Actor.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[USD Actor.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== USD Actor.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: USD Actor.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[USD Actor.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== ProcessCoin Msg.lvclass
+
+===== USD Actor.lvlib:ProcessCoin Msg.lvclass:Send ProcessCoin.vi
+
+:imgpath: USD Actor.lvlib_ProcessCoin Msg.lvclass_Send ProcessCoin.vi.png
+image::{imgpath}[USD Actor.lvlib:ProcessCoin Msg.lvclass:Send ProcessCoin.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== USD Actor.lvlib:ProcessCoin Msg.lvclass:Do.vi
+
+:imgpath: USD Actor.lvlib_ProcessCoin Msg.lvclass_Do.vi.png
+image::{imgpath}[USD Actor.lvlib:ProcessCoin Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Update Coins Msg.lvclass
+
+===== USD Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi
+
+:imgpath: USD Actor.lvlib_Update Coins Msg.lvclass_Send Update Coins.vi.png
+image::{imgpath}[USD Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== USD Actor.lvlib:Update Coins Msg.lvclass:Do.vi
+
+:imgpath: USD Actor.lvlib_Update Coins Msg.lvclass_Do.vi.png
+image::{imgpath}[USD Actor.lvlib:Update Coins Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== USD Actor.lvclass
+
+===== USD Actor.lvlib:USD Actor.lvclass:Read Sub Panel coin.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_Read Sub Panel coin.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:Read Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:Write Sub Panel coin.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_Write Sub Panel coin.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:Write Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:init.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_init.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:ProcessCoin.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_ProcessCoin.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:ProcessCoin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== USD Actor.lvlib:USD Actor.lvclass:Update Coins.vi
+
+:imgpath: USD Actor.lvlib_USD Actor.lvclass_Update Coins.vi.png
+image::{imgpath}[USD Actor.lvlib:USD Actor.lvclass:Update Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Comprar Msg.lvclass
+
+===== MXN Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi
+
+:imgpath: MXN Actor.lvlib_Comprar Msg.lvclass_Send Comprar.vi.png
+image::{imgpath}[MXN Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:Comprar Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_Comprar Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:Comprar Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== init Msg.lvclass
+
+===== MXN Actor.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: MXN Actor.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[MXN Actor.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Process coin Msg.lvclass
+
+===== MXN Actor.lvlib:Process coin Msg.lvclass:Send Process coin.vi
+
+:imgpath: MXN Actor.lvlib_Process coin Msg.lvclass_Send Process coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:Process coin Msg.lvclass:Send Process coin.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:Process coin Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_Process coin Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:Process coin Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Update Coins Msg.lvclass
+
+===== MXN Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi
+
+:imgpath: MXN Actor.lvlib_Update Coins Msg.lvclass_Send Update Coins.vi.png
+image::{imgpath}[MXN Actor.lvlib:Update Coins Msg.lvclass:Send Update Coins.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MXN Actor.lvlib:Update Coins Msg.lvclass:Do.vi
+
+:imgpath: MXN Actor.lvlib_Update Coins Msg.lvclass_Do.vi.png
+image::{imgpath}[MXN Actor.lvlib:Update Coins Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== MXN Actor.lvclass
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Read Sub Panel coin.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Read Sub Panel coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Read Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Write Sub Panel coin.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Write Sub Panel coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Write Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Comprar
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Comprar.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Comprar]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:init.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_init.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Process coin.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Process coin.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Process coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MXN Actor.lvlib:MXN Actor.lvclass:Update Coins.vi
+
+:imgpath: MXN Actor.lvlib_MXN Actor.lvclass_Update Coins.vi.png
+image::{imgpath}[MXN Actor.lvlib:MXN Actor.lvclass:Update Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Comprar Msg.lvclass
+
+===== Soda Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi
+
+:imgpath: Soda Actor.lvlib_Comprar Msg.lvclass_Send Comprar.vi.png
+image::{imgpath}[Soda Actor.lvlib:Comprar Msg.lvclass:Send Comprar.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Comprar Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Comprar Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Comprar Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Get Value List Msg.lvclass
+
+===== Soda Actor.lvlib:Get Value List Msg.lvclass:Send Get Value List.vi
+
+:imgpath: Soda Actor.lvlib_Get Value List Msg.lvclass_Send Get Value List.vi.png
+image::{imgpath}[Soda Actor.lvlib:Get Value List Msg.lvclass:Send Get Value List.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Get Value List Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Get Value List Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Get Value List Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== init Msg.lvclass
+
+===== Soda Actor.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: Soda Actor.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[Soda Actor.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Producto select Process Msg.lvclass
+
+===== Soda Actor.lvlib:Producto select Process Msg.lvclass:Send Producto select Process.vi
+
+:imgpath: Soda Actor.lvlib_Producto select Process Msg.lvclass_Send Producto select Process.vi.png
+image::{imgpath}[Soda Actor.lvlib:Producto select Process Msg.lvclass:Send Producto select Process.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Producto select Process Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Producto select Process Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Producto select Process Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Set Products Msg.lvclass
+
+===== Soda Actor.lvlib:Set Products Msg.lvclass:Send Set Products.vi
+
+:imgpath: Soda Actor.lvlib_Set Products Msg.lvclass_Send Set Products.vi.png
+image::{imgpath}[Soda Actor.lvlib:Set Products Msg.lvclass:Send Set Products.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Set Products Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Set Products Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Set Products Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Update Inventary Msg.lvclass
+
+===== Soda Actor.lvlib:Update Inventary Msg.lvclass:Send Update Inventary.vi
+
+:imgpath: Soda Actor.lvlib_Update Inventary Msg.lvclass_Send Update Inventary.vi.png
+image::{imgpath}[Soda Actor.lvlib:Update Inventary Msg.lvclass:Send Update Inventary.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Soda Actor.lvlib:Update Inventary Msg.lvclass:Do.vi
+
+:imgpath: Soda Actor.lvlib_Update Inventary Msg.lvclass_Do.vi.png
+image::{imgpath}[Soda Actor.lvlib:Update Inventary Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Soda Actor.lvclass
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read Sub Panel Produ.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read Sub Panel Produ.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write Sub Panel Produ.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write Sub Panel Produ.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read VI Refnum.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read VI Refnum.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write VI Refnum.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write VI Refnum.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read Soda_.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read Soda_.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write Soda_.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write Soda_.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Read MXN.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Read MXN.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Read MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Write MXN.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Write MXN.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Write MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Comprar.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Comprar.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Comprar.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Confirmar compra.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Confirmar compra.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Confirmar compra.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Get Value List.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Get Value List.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Get Value List.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:init.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_init.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Producto select Process.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Producto select Process.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Producto select Process.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Soda Actor.lvlib:Soda Actor.lvclass:Update Inventary.vi
+
+:imgpath: Soda Actor.lvlib_Soda Actor.lvclass_Update Inventary.vi.png
+image::{imgpath}[Soda Actor.lvlib:Soda Actor.lvclass:Update Inventary.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== Get Value list Msg.lvclass
+
+===== Nestle Actor.lvlib:Get Value list Msg.lvclass:Send Get Value list.vi
+
+:imgpath: Nestle Actor.lvlib_Get Value list Msg.lvclass_Send Get Value list.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Get Value list Msg.lvclass:Send Get Value list.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Nestle Actor.lvlib:Get Value list Msg.lvclass:Do.vi
+
+:imgpath: Nestle Actor.lvlib_Get Value list Msg.lvclass_Do.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Get Value list Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Init Msg.lvclass
+
+===== Nestle Actor.lvlib:Init Msg.lvclass:Send Init.vi
+
+:imgpath: Nestle Actor.lvlib_Init Msg.lvclass_Send Init.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Init Msg.lvclass:Send Init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Nestle Actor.lvlib:Init Msg.lvclass:Do.vi
+
+:imgpath: Nestle Actor.lvlib_Init Msg.lvclass_Do.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Update inventary Msg.lvclass
+
+===== Nestle Actor.lvlib:Update inventary Msg.lvclass:Send Update inventary.vi
+
+:imgpath: Nestle Actor.lvlib_Update inventary Msg.lvclass_Send Update inventary.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Update inventary Msg.lvclass:Send Update inventary.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== Nestle Actor.lvlib:Update inventary Msg.lvclass:Do.vi
+
+:imgpath: Nestle Actor.lvlib_Update inventary Msg.lvclass_Do.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Update inventary Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Nestle Actor.lvclass
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read Sub Panel Produ.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read Sub Panel Produ.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write Sub Panel Produ.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write Sub Panel Produ.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write Sub Panel Produ.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read VI Refnum.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read VI Refnum.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write VI Refnum.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write VI Refnum.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read Soda_.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read Soda_.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write Soda_.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write Soda_.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write Soda_.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Read MXN.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Read MXN.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Read MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Write MXN.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Write MXN.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Write MXN.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Get Value list.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Get Value list.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Get Value list.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Init.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Init.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== Nestle Actor.lvlib:Nestle Actor.lvclass:Update inventary.vi
+
+:imgpath: Nestle Actor.lvlib_Nestle Actor.lvclass_Update inventary.vi.png
+image::{imgpath}[Nestle Actor.lvlib:Nestle Actor.lvclass:Update inventary.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== init Msg.lvclass
+
+===== MSG.lvlib:init Msg.lvclass:Send init.vi
+
+:imgpath: MSG.lvlib_init Msg.lvclass_Send init.vi.png
+image::{imgpath}[MSG.lvlib:init Msg.lvclass:Send init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MSG.lvlib:init Msg.lvclass:Do.vi
+
+:imgpath: MSG.lvlib_init Msg.lvclass_Do.vi.png
+image::{imgpath}[MSG.lvlib:init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Update Credit Msg.lvclass
+
+===== MSG.lvlib:Update Credit Msg.lvclass:Send Update Credit.vi
+
+:imgpath: MSG.lvlib_Update Credit Msg.lvclass_Send Update Credit.vi.png
+image::{imgpath}[MSG.lvlib:Update Credit Msg.lvclass:Send Update Credit.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MSG.lvlib:Update Credit Msg.lvclass:Do.vi
+
+:imgpath: MSG.lvlib_Update Credit Msg.lvclass_Do.vi.png
+image::{imgpath}[MSG.lvlib:Update Credit Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Update MSG Msg.lvclass
+
+===== MSG.lvlib:Update MSG Msg.lvclass:Send Update MSG.vi
+
+:imgpath: MSG.lvlib_Update MSG Msg.lvclass_Send Update MSG.vi.png
+image::{imgpath}[MSG.lvlib:Update MSG Msg.lvclass:Send Update MSG.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== MSG.lvlib:Update MSG Msg.lvclass:Do.vi
+
+:imgpath: MSG.lvlib_Update MSG Msg.lvclass_Do.vi.png
+image::{imgpath}[MSG.lvlib:Update MSG Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== MSG.lvclass
+
+===== MSG.lvlib:MSG.lvclass:Read Sub Panel Message.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Read Sub Panel Message.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Read Sub Panel Message.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Write Sub Panel Message.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Write Sub Panel Message.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Write Sub Panel Message.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Read VI Refnum.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Read VI Refnum.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Read VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Write VI Refnum.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Write VI Refnum.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Write VI Refnum.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:init.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_init.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Update Credit.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Update Credit.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Update Credit.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== MSG.lvlib:MSG.lvclass:Update MSG.vi
+
+:imgpath: MSG.lvlib_MSG.lvclass_Update MSG.vi.png
+image::{imgpath}[MSG.lvlib:MSG.lvclass:Update MSG.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+==== creditUpdate Msg.lvclass
+
+===== UI Actor.lvlib:creditUpdate Msg.lvclass:Send creditUpdate.vi
+
+:imgpath: UI Actor.lvlib_creditUpdate Msg.lvclass_Send creditUpdate.vi.png
+image::{imgpath}[UI Actor.lvlib:creditUpdate Msg.lvclass:Send creditUpdate.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:creditUpdate Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_creditUpdate Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:creditUpdate Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Init Msg.lvclass
+
+===== UI Actor.lvlib:Init Msg.lvclass:Send Init.vi
+
+:imgpath: UI Actor.lvlib_Init Msg.lvclass_Send Init.vi.png
+image::{imgpath}[UI Actor.lvlib:Init Msg.lvclass:Send Init.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Init Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Init Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Init Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== Update Values Msg.lvclass
+
+===== UI Actor.lvlib:Update Values Msg.lvclass:Send Update Values.vi
+
+:imgpath: UI Actor.lvlib_Update Values Msg.lvclass_Send Update Values.vi.png
+image::{imgpath}[UI Actor.lvlib:Update Values Msg.lvclass:Send Update Values.vi]
+
+*Description:*
+++++
+This VI sends the message to an actor.
+++++
+
+===== UI Actor.lvlib:Update Values Msg.lvclass:Do.vi
+
+:imgpath: UI Actor.lvlib_Update Values Msg.lvclass_Do.vi.png
+image::{imgpath}[UI Actor.lvlib:Update Values Msg.lvclass:Do.vi]
+
+*Description:*
+++++
+This VI delivers the message to the actor by calling the appropriate method(s) on the actor.
+++++
+
+==== UI Actor.lvclass
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Coins.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Coins.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Coins.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Coins.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Coins.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Products.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Products.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Products.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Products.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Products.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Products.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel coin.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Sub Panel coin.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel coin.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Sub Panel coin.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel coin.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel MSG.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Sub Panel MSG.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel MSG.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel MSG.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Sub Panel MSG.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel MSG.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel Prod.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Read Sub Panel Prod.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Read Sub Panel Prod.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel Prod.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Write Sub Panel Prod.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Write Sub Panel Prod.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:costo + product english.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_costo + product english.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:costo + product english.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:costo + product.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_costo + product.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:costo + product.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:creditUpdate.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_creditUpdate.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:creditUpdate.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:ingles español.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_ingles español.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:ingles español.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Init.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Init.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Init.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:update values subvi.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_update values subvi.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:update values subvi.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+===== UI Actor.lvlib:UI Actor.lvclass:Update Values.vi
+
+:imgpath: UI Actor.lvlib_UI Actor.lvclass_Update Values.vi.png
+image::{imgpath}[UI Actor.lvlib:UI Actor.lvclass:Update Values.vi]
+
+*Description:*
+No description found (add content in VI description)
+
+== Legal Information
+
+=== Document creation
+
+This document has been generated using the following tools.
+
+==== Antidoc
+
+Project website: https://wovalab.gitlab.io/open-source/labview-doc-generator/[Antidoc] 
+
+Maintainer website: https://wovalab.com[Wovalab] 
+
+BSD 3-Clause License
+
+Copyright (C) 2019, Wovalab,
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+==== Asciidoc for LabVIEW(TM)
+
+Project website: https://wovalab.gitlab.io/open-source/asciidoc-toolkit/[Asciidoc toolkit] 
+
+Maintainer website: https://wovalab.com[Wovalab] 
+
+BSD 3-Clause License
+
+Copyright (C) 2019, Wovalab,
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+==== Graph Builder
+
+Project website: https://gitlab.com/cgambini/graph-builder[Graph Builder]
+
+BSD 3-Clause License
+
+Copyright (c) 2020, Cyril GAMBINI
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+=== Product used in the project
+
+Antidoc hasn't been able to detect third party products in the project.
+This is the author's responsibility to list any of the missing product used.
